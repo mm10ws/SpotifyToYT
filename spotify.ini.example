@@ -1,0 +1,8 @@
+[DEFAULT]
+ClientId = your spotify client ID from API
+ClientSecret = your spotify client secret from API
+PlaylistLink = link to the spotify playlist
+PlaylistCsvSaveFileName = CSV file name to dump spotify playlist
+YtResultsCsvSaveFileName = CSV file to store youtube matches
+DownloadFolderPath = folder to store saved tracks
+TracksSince = timestamp of earliest tracks to take from spotify playlist (ex. 2022-07-17T00:00:00Z), Remove to get all tracks
