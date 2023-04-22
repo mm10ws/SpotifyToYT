@@ -36,7 +36,16 @@ if __name__ == "__main__":
             # download audio stream
             print(f"Downloading: {search_title} {search_artist} {vid_id}")
             yt = YouTube(f"https://www.youtube.com/watch?v={vid_id}")
-            result = yt.streams.get_audio_only()
+
+            # TODO: getting a weird keyerror from pytube sometimes, so just keep retrying
+            try_again = True
+            while try_again:
+                try:
+                    result = yt.streams.get_audio_only()
+                    try_again = False
+                except Exception:
+                    print("Failed, trying again...")
+
             file_name = (
                 safe_filename(f"{search_title}_{search_artist}") + f".{result.subtype}"
             )
